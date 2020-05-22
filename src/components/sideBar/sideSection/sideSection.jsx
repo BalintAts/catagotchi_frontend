@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import './sideSectionStyle.scss';
+import TopSection from '../topSection/topSection';
 
-const Sidebar = () => {
+const SideSection = () => {
     return (
-        <div className="Sidebar_container">
-            <h3>sidebar</h3>
+        <div className="Sidebar_sideSection">
+            <TopSection />
+            <h3>sidebarSide</h3>
         </div>
     );
 }
 
 
-export default Sidebar;
+export default SideSection;

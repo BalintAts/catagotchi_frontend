@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import './topSectionStyle.scss';
 import BurgerButton from '../BurgerButton/burgerButton';
+import { SidebarContext } from '../sideBar';
 
 const TopSection = () => {
+    const { isShowSidebar, setIsShowSidebar } = useContext(SidebarContext);
     return (
         <div className="Sidebar_TopSection">
-            <BurgerButton />
+            <BurgerButton onClick={() => setIsShowSidebar(true)} />
         </div>
     );
 }

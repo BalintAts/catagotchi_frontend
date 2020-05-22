@@ -8,10 +8,10 @@ export const SidebarContext = createContext({
 });
 
 const SideBar = () => {
-    const [isShowSidebar, setShowSidebar] = useState(false);
+    const [isShowSidebar, setIsShowSidebar] = useState(false);
     return (
         <SidebarContext.Provider
-            value={{ isShowSidebar, setShowSidebar }}
+            value={{ isShowSidebar, setIsShowSidebar }}
         >
             <div className="Sidebar_container">
                 <TopSection />

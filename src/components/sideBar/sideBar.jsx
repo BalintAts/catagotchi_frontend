@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, createContext, useState } from 'react';
 import TopSection from './topSection/topSection';
 import SideSection from './sideSection/sideSection';
 
 
+export const SidebarContext = createContext({
+
+});
+
 const SideBar = () => {
+    const [isShowSidebar, setShowSidebar] = useState(false);
     return (
-        <div className="Sidebar_container">
-            <TopSection />
-            <SideSection />
-        </div>
+        <SidebarContext.Provider
+            value={{ isShowSidebar, setShowSidebar }}
+        >
+            <div className="Sidebar_container">
+                <TopSection />
+                <SideSection />
+            </div>
+        </SidebarContext.Provider>
     );
 }
 

@@ -1,6 +1,8 @@
+$sideBar-width: 10em; 
+
 .Sidebar_sideSection {
     position: fixed;
-    width: 10em;
+    width: $sideBar-width ;
     top: 0;
     bottom: 0;
     left: 0;
@@ -22,11 +24,21 @@
     }
 
     .sideSection_menu_Wrapper {
-        list-style-type: none;
+        list-style-type:none;
         margin: 1em;
         padding: 0;
 
+        li{
+            list-style-type: none;
+        }
+
     }
+}
 
+.sideSection--show {
+    transform: translateX(0);
+}
 
+.sideSection--hide {
+    transform: translateX(-$sideBar-width);
 }

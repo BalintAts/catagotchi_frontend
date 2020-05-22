@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import './sideSectionStyle.scss';
 import TopSection from '../topSection/topSection';
 import BurgerButton from '../BurgerButton/burgerButton';
+import { SidebarContext } from '../sideBar';
 
 const SideSection = () => {
+    const { isShowSidebar, setIsShowSidebar } = useContext(SidebarContext);
     return (
-        <div className="Sidebar_sideSection">
+        <div className={`Sidebar_sideSection    sideSection--${isShowSidebar ? 'show' : 'hide'}`}>
             <div className="sideSection_topWrapper">
                 <BurgerButton />
             </div>
-            <div className="side_menu_wrapper">
+            <div className="sideSection_menu_Wrapper">
                 <li>
                     ewrhfhfh
                 </li>

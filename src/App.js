@@ -4,12 +4,13 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import SideSection from './components/sideBar/sideSection/sideSection';
+import SideBar from './components/sideBar/sideBar';
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <SideSection />
+      <SideBar />
       {/* <Switch>
         <Route path={"/my-cats"} exact component={MyCatsList} />
         <Route path={"/my-cats/:catId"} component={MyCatDetail} />

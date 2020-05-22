@@ -11,3 +11,7 @@
 .blue {
     background-color: blue;
 }
+
+button {
+    cursor: pointer;
+}

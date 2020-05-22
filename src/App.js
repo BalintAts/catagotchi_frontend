@@ -8,6 +8,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+
       {/* <Switch>
         <Route path={"/my-cats"} exact component={MyCatsList} />
         <Route path={"/my-cats/:catId"} component={MyCatDetail} />

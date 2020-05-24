@@ -15,23 +15,20 @@ const SideSection = () => {
             </div>
             <div className="sideSection_menu_Wrapper">
                 <li>
+                    <p>Gender:</p>
                     <select name="gender" id="gender">
                         <option value="male">male</option>
                         <option value="femalegztuztuztuz">gkjthgkjhdgfemale</option>
                     </select>
                 </li>
                 <li>
-                    <select name="gender" id="gender">
-                        <option value="male">male</option>
-                        <option value="female">female</option>
+                    <p>Age:</p>
+                    <select name="age" id="age">
+                        <option value="young">young</option>
+                        <option value="old">old</option>
                     </select>
                 </li>
-                <li>
-                    <select name="gender" id="gender">
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                </li>
+
             </div>
         </div>
     );

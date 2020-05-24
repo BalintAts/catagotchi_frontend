@@ -1,9 +1,9 @@
-$sideBar-width: 10em; 
+$sideBar-width: 12em; 
 
 .Sidebar_sideSection {
     position: fixed;
     width: $sideBar-width ;
-    top: 0;
+    top: 50px;
     bottom: 0;
     left: 0;
 
@@ -39,8 +39,10 @@ $sideBar-width: 10em;
 
 .sideSection--show {
     transform: translateX(0);
+    transition: all  0.5  ease;
 }
 
 .sideSection--hide {
     transform: translateX(-$sideBar-width);
+    transition: all  0.5  ease;
 }

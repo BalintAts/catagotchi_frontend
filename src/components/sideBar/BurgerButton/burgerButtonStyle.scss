@@ -1,13 +1,10 @@
 .Sidebar_BurgerButton {
-    display: flex;
-    flex-direction: column;
+    position: fixed;
+    // display: flex;
+    // flex-direction: column;
     cursor: pointer;
+    background-color: white;
+    height: 20px;
+    z-index:100;
 
-    i{
-        background-color: white;
-        width: 2em;
-        height: 0.25em;
-        margin: 0.15em;
-        border-radius: 0.125em;
-    }
 }

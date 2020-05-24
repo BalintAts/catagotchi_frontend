@@ -1,5 +1,5 @@
 export const fakeData = [
-    { id: 0, name: 'Purry', img: "https://d2ph5fj80uercy.cloudfront.net/04/cat2972.jpg" },
+    { id: 0, name: 'Jonesy', img: "https://d2ph5fj80uercy.cloudfront.net/04/cat2972.jpg" },
     { id: 1, name: 'Schrödinger', img: "https://d2ph5fj80uercy.cloudfront.net/06/cat1996.jpg" },
     { id: 2, name: 'Ópamacs', img: "https://d2ph5fj80uercy.cloudfront.net/06/cat2630.jpg" },
     { id: 3, name: 'Guriga', img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQDUBhnLKerrtsNVx1l-QiaPrnJfG5zNFY-O5F_Xc9XNNJgukrj&usqp=CAU" },

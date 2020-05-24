@@ -29,7 +29,6 @@ const Navbar = props => {
 
     return (
         <div id="navbarBg">
-            <button>Burger Menu </button>
             <LinkStyle to="/">Home</LinkStyle>
             <LinkStyle to="/my-cats">My cats</LinkStyle>
             <button>Logout</button>

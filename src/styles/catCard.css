@@ -1,0 +1,23 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+}
+
+.frame {
+  overflow: hidden;  
+}
+
+.image{
+    -webkit-transform: scale(1);
+    -webkit-transition: -webkit-transform 0.5 ease;
+}
+
+.image:hover{
+    transform: scale(1.1);
+}

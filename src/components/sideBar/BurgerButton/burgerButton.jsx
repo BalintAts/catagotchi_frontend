@@ -4,14 +4,8 @@ import './burgerButtonStyle.scss';
 
 const BurgerButton = ({ onClick }) => {
     return (
-        <div className="Sidebar_BurgerButton"
-            role="button" onClick={onClick}>
-            <h3>Filter</h3>
-            {/* <i></i>
-            <i></i>
-            <i></i> */}
-
-        </div>
+        <h3 className="Sidebar_BurgerButton"
+            role="button" onClick={onClick}>Filter</h3>
     );
 }
 

@@ -6,7 +6,7 @@ const BurgerButton = ({ onClick }) => {
     return (
         <div className="Sidebar_BurgerButton"
             role="button" onClick={onClick}>
-            <h3>TOGGLE SEARCH</h3>
+            <h3>Filter</h3>
             {/* <i></i>
             <i></i>
             <i></i> */}

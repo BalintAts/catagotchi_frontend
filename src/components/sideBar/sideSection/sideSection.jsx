@@ -11,7 +11,7 @@ const SideSection = () => {
     return (
         <div className={`Sidebar_sideSection    sideSection--${isShowSidebar ? 'show' : 'hide'}`}>
             <div className="sideSection_topWrapper">
-                <BurgerButton onClick={() => setIsShowSidebar(false)} />
+                <button onClick={() => setIsShowSidebar(false)}>Hide</button>
             </div>
             <div className="sideSection_menu_Wrapper">
                 <li>

@@ -19,13 +19,13 @@ const Navbar = props => {
 
     }
 
-    // useEffect(() => {
-    //     document.getElementById("bgButton").addEventListener("click",
-    //         () => 
-    //             counter = counter < colorClasses.length ? ++counter : 0;
-    //             document.getElementById("navbarBg").style.color = colors[counter];
-    //         );
-    // });
+    useEffect(() => {
+        document.getElementById("bgButton").addEventListener("click",
+            () => {
+                counter = counter < colorClasses.length ? ++counter : 0;
+                document.getElementById("navbarBg").style.color = colors[counter];
+            });
+    });
 
     return (
         <div id="navbarBg">

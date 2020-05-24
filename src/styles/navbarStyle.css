@@ -1,14 +1,16 @@
+#navbarBg {
+    background-color: blue;
+}
 
-
-.red {
+#red {
     background-color: red;
 }
 
-.green {
+#green {
     background-color: green;
 }
 
-.blue {
+#blue {
     background-color: blue;
 }
 

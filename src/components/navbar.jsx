@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../styles/navbarStyle.css';
 import LinkStyle from "../styles/linkStyle";
 
@@ -33,7 +33,6 @@ const Navbar = props => {
             <LinkStyle to="/my-cats">My cats</LinkStyle>
             <button>Logout</button>
             <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button>
-            {/* <LinkStyle to="/debugPokemon">DebugPokemon</LinkStyle> */}
         </div>
     );
 }

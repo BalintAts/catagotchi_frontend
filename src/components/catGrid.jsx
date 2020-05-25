@@ -1,16 +1,15 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { Component, useEffect, useState, useContext } from 'react'
 import { fakeData } from '../fakeData/fakeData';
 import CatCard from './catCard';
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
 const CatGrid = props => {
     const [filteredData, setFilteredData] = useState(fakeData);
+    // const filters = useContext(FilterContext);
     const filters = {
         gender: "any",
         age: "any",
     };
-
 
     useEffect(() => {
         const filteredData = fakeData;

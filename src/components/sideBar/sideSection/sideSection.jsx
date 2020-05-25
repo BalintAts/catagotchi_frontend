@@ -1,9 +1,8 @@
-import React, { Component, useContext } from 'react';
+import React, { useContext } from 'react';
 import './sideSectionStyle.scss';
-import TopSection from '../topSection/topSection';
-import BurgerButton from '../BurgerButton/burgerButton';
 import { SidebarContext } from '../sideBar';
-import Gender from '../../searchAttributes/gender';
+
+
 
 
 const SideSection = () => {

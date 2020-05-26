@@ -5,25 +5,19 @@ import { FilterContext } from '../../searchAttributes/filterContext';
 
 
 const SideSection = () => {
-    const value = useContext(FilterContext);
-
-
-    const [gender, setGender] = useState("any");
-    // const [age, setAge] = useState("any");
-
+    const [filters, setFilters] = useContext(FilterContext);
 
 
     const handleChange = event => {
-        setGender({ value: event.target.value });
-        console.log(event.target.value);
-        console.log(gender);
+        let newGender = event.target.value;
+        setFilters(Object.assign(filters, { gender: newGender }));
     }
 
     const { isShowSidebar, setIsShowSidebar } = useContext(SidebarContext);
     return (
 
+
         <div className={`Sidebar_sideSection    sideSection--${isShowSidebar ? 'show' : 'hide'}`}>
-            <h1>{value}</h1>
             <div className="sideSection_topWrapper">
                 <button onClick={() => setIsShowSidebar(false)}>Hide</button>
             </div>
@@ -31,7 +25,7 @@ const SideSection = () => {
                 <li>
                     {/* <p>Gender:</p>
                     <Select options={genderOptions} onInputChange={setGender} /> */}
-                    <select value={gender} onChange={handleChange}>
+                    <select value={filters.gender} onChange={handleChange}>
                         <option value="any">any</option>
                         <option value="male">male</option>
                         <option value="female">female</option>

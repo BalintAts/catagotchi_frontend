@@ -6,25 +6,21 @@ import { FilterContext } from './searchAttributes/filterContext';
 import { FilterProvider } from './searchAttributes/filterContext';
 
 const CatGrid = props => {
-    const value = useContext(FilterContext);
-
+    const [filters, setFilters] = useContext(FilterContext);
     const [filteredData, setFilteredData] = useState(fakeData);
-    const filters = {
-        gender: "any",
-        age: "any",
-    };
+
 
     useEffect(() => {
         const filteredData = fakeData;
         if (filters.gender !== "any") {
             setFilteredData(filteredData.filter(cat => cat.gender === filters.gender));
-            console.log(filters.gender);
         }
         if (filters.age !== "any") {
             setFilteredData(filteredData.filter(cat => cat.gender === filters.age));
         }
-        console.log(value);
-    }, [filters.age, filters.gender, value]);
+        console.log("catgrid useeffect");
+        // console.log(filters);
+    }, [filters]);
 
 
     return (
@@ -40,7 +36,7 @@ const CatGrid = props => {
                         </Grid>
                     )}
                 </Grid>
-                <h1>{value}</h1>
+                {/* <h1>{value}</h1> */}
             </>
         </FilterProvider >
     );

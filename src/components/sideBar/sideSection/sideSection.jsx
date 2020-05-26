@@ -1,32 +1,46 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './sideSectionStyle.scss';
 import { SidebarContext } from '../sideBar';
-
-
+import { FilterContext } from '../../searchAttributes/filterContext';
 
 
 const SideSection = () => {
+    const value = useContext(FilterContext);
+
+
+    const [gender, setGender] = useState("any");
+    // const [age, setAge] = useState("any");
+
+
+
+    const handleChange = event => {
+        setGender({ value: event.target.value });
+        console.log(event.target.value);
+        console.log(gender);
+    }
+
     const { isShowSidebar, setIsShowSidebar } = useContext(SidebarContext);
     return (
+
         <div className={`Sidebar_sideSection    sideSection--${isShowSidebar ? 'show' : 'hide'}`}>
+            <h1>{value}</h1>
             <div className="sideSection_topWrapper">
                 <button onClick={() => setIsShowSidebar(false)}>Hide</button>
             </div>
             <div className="sideSection_menu_Wrapper">
                 <li>
-                    <p>Gender:</p>
-                    <select name="gender" id="gender">
+                    {/* <p>Gender:</p>
+                    <Select options={genderOptions} onInputChange={setGender} /> */}
+                    <select value={gender} onChange={handleChange}>
+                        <option value="any">any</option>
                         <option value="male">male</option>
-                        <option value="femalegztuztuztuz">gkjthgkjhdgfemale</option>
+                        <option value="female">female</option>
                     </select>
                 </li>
-                <li>
+                {/* <li>
                     <p>Age:</p>
-                    <select name="age" id="age">
-                        <option value="young">young</option>
-                        <option value="old">old</option>
-                    </select>
-                </li>
+                    <Select options={ageOptions} onInputChange={setAge} />
+                </li> */}
 
             </div>
         </div>

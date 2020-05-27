@@ -12,8 +12,9 @@ const CatGrid = props => {
     const [title, setTitle] = useState("All Cats");
 
     useEffect(() => {
-        // if (props.isUsersCats) 
-        setTitle("My Cats")
+        if (props.isUsersCats) {
+            setTitle("My Cats")
+        }
         const url = "https//localhost:8080/my-cats";
         fetch(url)
             .then(response => response.json())

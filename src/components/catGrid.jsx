@@ -34,6 +34,7 @@ const CatGrid = props => {
             setFilteredData(filteredData.filter(cat => cat.gender === filters.age));
         }
         console.log("catgrid useeffect");
+        console.log(props.isUsersCats);
 
 
 

@@ -13,8 +13,8 @@ function App() {
         <Navbar />
         <SideBar />
         <Switch>
-          <Route path={"/"} component={() => <CatGrid isUsersCats={false} />} />
-          <Route path={"/my-cats"} component={() => <CatGrid isUsersCats={true} />} />
+          <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
+          <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} />
           {/* <Route path={"/my-cats/:catId"} component={MyCatDetail} />
           <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
         </Switch>

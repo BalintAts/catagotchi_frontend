@@ -12,20 +12,22 @@ const CatGrid = props => {
     const [title, setTitle] = useState("All Cats");
 
     useEffect(() => {
-        if (props.isUsersCats) {
-            setTitle("My Cats")
-            const url = "backednUrl";
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.results);
-                    setFilteredData(data.results);
-                    setIsLoading(false);
-                })
-                .catch(error => console.log(error));
+        // if (props.isUsersCats) 
+        setTitle("My Cats")
+        const url = "https//localhost:8080/my-cats";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setFilteredData(data);
+                setIsLoading(false);
+            })
+        // .then(response => response.text())
+        // .then(text => console.log(text));
+        // .catch(error => console.log(error));
 
 
-        }
+
         const filteredData = fakeData;
         if (filters.gender !== "any") {
             setFilteredData(filteredData.filter(cat => cat.gender === filters.gender));

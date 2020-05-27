@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar';
 import SideBar from './components/sideBar/sideBar';
 import CatGrid from './components/catGrid';
@@ -12,13 +12,12 @@ function App() {
       <Router>
         <Navbar />
         <SideBar />
-        <CatGrid />
-        {/* <Switch>
-        <Route path={"/my-cats"} exact component={MyCatsList} />
-        <Route path={"/my-cats/:catId"} component={MyCatDetail} />
-        <Route path={"/all-cats/:catId"} component={BaseCatDetail} />
-      </Switch> */}
-        {/* <AllCatsList/> */}
+        <Switch>
+          <Route path={"/"} component={() => <CatGrid isUsersCats={false} />} />
+          <Route path={"/my-cats"} component={() => <CatGrid isUsersCats={true} />} />
+          {/* <Route path={"/my-cats/:catId"} component={MyCatDetail} />
+          <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
+        </Switch>
       </Router >
     </FilterProvider>
   );

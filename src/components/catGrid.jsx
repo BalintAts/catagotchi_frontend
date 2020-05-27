@@ -12,6 +12,7 @@ const CatGrid = props => {
     const [title, setTitle] = useState("All Cats");
 
     useEffect(() => {
+        console.log("useffect called");
         if (props.isUsersCats) {
             setTitle("My Cats")
         }
@@ -23,9 +24,9 @@ const CatGrid = props => {
                 setFilteredData(data);
                 setIsLoading(false);
             })
-        // .then(response => response.text())
-        // .then(text => console.log(text));
-        // .catch(error => console.log(error));
+            // .then(response => response.text())
+            // .then(text => console.log(text));
+            .catch(error => console.log(error));
 
 
 

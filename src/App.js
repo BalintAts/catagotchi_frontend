@@ -5,6 +5,7 @@ import Navbar from './components/navbar';
 import SideBar from './components/sideBar/sideBar';
 import CatGrid from './components/catGrid';
 import { FilterProvider } from './components/searchAttributes/filterContext';
+import CatDetail from './components/catDetail';
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <Switch>
           <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
           <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} />
-          {/* <Route path={"/my-cats/:catId"} component={MyCatDetail} />
-          <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
+          <Route path={"/my-cats/:catId"} component={CatDetail} />
+          {/* <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
         </Switch>
       </Router >
     </FilterProvider>

@@ -5,6 +5,7 @@ import { fakeData } from '../fakeData/fakeData';
 const CatDetail = props => {
     const [name, setName] = useState("a");
     const [gender, setGender] = useState("a");
+    const [age, setAge] = useState("a");
     const [isLoading, setIsLoading] = useState(false);
     const [title, setTitle] = useState("Név");
     const [img, setImg] = useState("https://d2ph5fj80uercy.cloudfront.net/04/cat2972.jpg");
@@ -19,6 +20,7 @@ const CatDetail = props => {
         // get fakedata based on id
         setName(fakeData[id].name);
         setGender(fakeData[id].gender);
+        setAge(fakeData[id].age);
         setImg(fakeData[id].img);
         // fetch(url)
         //     .then(response =>
@@ -41,6 +43,9 @@ const CatDetail = props => {
                 <>
                     <h1>{name}</h1>
                     <img className="image" src={img} alt={img}></img>
+                    <h1>{gender}</h1>
+                    <h1>{age}</h1>
+
                 </>
             };
         </>

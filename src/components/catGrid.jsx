@@ -20,7 +20,6 @@ const CatGrid = props => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setFilteredData(data);
                 setIsLoading(false);
             })
@@ -57,7 +56,7 @@ const CatGrid = props => {
                         justify="center">
                         {filteredData.map(cat =>
                             <Grid item xs={12} sm={6} md={4} key={cat.id}>
-                                <CatCard name={cat.name} img={cat.img} />
+                                <CatCard id={cat.id} name={cat.name} img={cat.img} />
                             </Grid>
                         )}
                     </Grid>}

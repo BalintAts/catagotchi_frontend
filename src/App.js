@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
           <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} />
-          <Route path={"/my-cats/:catId"} component={CatDetail} />
+          <Route path={"/my-cats/:id"} component={CatDetail} />
           {/* <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
         </Switch>
       </Router >

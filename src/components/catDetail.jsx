@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fakeData } from '../fakeData/fakeData';
+import '../styles/catCard.css';
 
 
 const CatDetail = props => {
@@ -40,13 +41,13 @@ const CatDetail = props => {
         <>
             {props.isUsersCats ? (<h2>This is one of my cats</h2>) : (<h2>This is not my cat</h2>)}
             {isLoading ? (<h3> Loading...</h3 >) :
-                <>
+                <div>
                     <h1>{name}</h1>
-                    <img className="image" src={img} alt={img}></img>
+                    <img className="card" src={img} alt={img}></img>
                     <h1>{gender}</h1>
                     <h1>{age}</h1>
 
-                </>
+                </div>
             };
         </>
     );

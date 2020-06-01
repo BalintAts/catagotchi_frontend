@@ -7,7 +7,7 @@ const CatDetail = props => {
     const [name, setName] = useState("a");
     const [gender, setGender] = useState("a");
     const [age, setAge] = useState("a");
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [title, setTitle] = useState("Név");
     const [img, setImg] = useState("https://d2ph5fj80uercy.cloudfront.net/04/cat2972.jpg");
     const [id, setId] = useState(0);
@@ -34,6 +34,7 @@ const CatDetail = props => {
         //         setImg(data.img);
         //     })
         //     .catch(error => console.log(error));;
+        setIsLoading(false);
     }, [id, props.id, props.isUsersCats, img, props]);
 
 

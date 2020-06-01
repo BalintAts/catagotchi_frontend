@@ -4,11 +4,12 @@ import CatCard from './catCard';
 import { Grid } from "@material-ui/core";
 import { FilterContext } from './searchAttributes/filterContext';
 import { FilterProvider } from './searchAttributes/filterContext';
+import '../styles/catGrid.css';
 
 const CatGrid = props => {
     const [filters, setFilters] = useContext(FilterContext);
     const [filteredData, setFilteredData] = useState(fakeData);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [title, setTitle] = useState("All Cats");
 
     useEffect(() => {
@@ -16,16 +17,18 @@ const CatGrid = props => {
         if (props.isUsersCats) {
             setTitle("My Cats")
         }
-        const url = "https//localhost:8080/my-cats";
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setFilteredData(data);
-                setIsLoading(false);
-            })
-            // .then(response => response.text())
-            // .then(text => console.log(text));
-            .catch(error => console.log(error));
+        // const url = "https://localhost:8080/my-cats";
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         setFilteredData(data);
+
+
+        // })
+        // .then(response => response.text())
+        // .then(text => console.log(text));
+        // .catch(error => console.log(error));
 
 
 
@@ -38,11 +41,12 @@ const CatGrid = props => {
         }
         console.log("catgrid useeffect");
         console.log(props.isUsersCats);
+        setIsLoading(false);
 
 
 
         // console.log(filters);
-    }, [filters, props.isUsersCats]);
+    }, [filteredData, filters.gender, filters.age, props.isUsersCats]);
 
 
     return (

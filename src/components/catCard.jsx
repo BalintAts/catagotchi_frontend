@@ -1,7 +1,6 @@
 import React from 'react'
 import '../styles/catCard.css';
 import { Link } from 'react-router-dom';
-import { fakeData } from '../fakeData/fakeData';
 
 const CatCard = props => {
     console.log(props.img);

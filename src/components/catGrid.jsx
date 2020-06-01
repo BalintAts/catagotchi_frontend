@@ -7,7 +7,7 @@ import { FilterProvider } from './searchAttributes/filterContext';
 import '../styles/catGrid.css';
 
 const CatGrid = props => {
-    const [filters, setFilters] = useContext(FilterContext);
+    const [filters] = useContext(FilterContext);
     const [filteredData, setFilteredData] = useState(fakeData);
     const [isLoading, setIsLoading] = useState(true);
     const [title, setTitle] = useState("All Cats");

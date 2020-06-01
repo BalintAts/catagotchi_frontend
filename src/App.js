@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar';
-import SideBar from './components/sideBar/sideBar';
+import SideBar from './components/sideBar';
 import CatGrid from './components/catGrid';
 import { FilterProvider } from './components/searchAttributes/filterContext';
 import CatDetail from './components/catDetail';

@@ -5,27 +5,14 @@ import LinkStyle from "../styles/linkStyle";
 
 const Navbar = props => {
 
-    let colorClasses = [".red", ".green", ".blue"]
     let counter = 0;
     let colors = ["#ff0000", "#00ff00", "#0000ff"];
     const [color, setColor] = useState("#0000ff");
 
     const ChangeBgColor = () => {
-
-
         counter = (counter + 1) % 3;
-
         setColor(colors[counter]);
-
     }
-
-    // useEffect(() => {
-    //     document.getElementById("bgButton").addEventListener("click",
-    //         () => {
-    //             counter = counter < colorClasses.length ? ++counter : 0;
-    //             document.getElementById("navbarBg").style.color = colors[counter];
-    //         });
-    // });
 
     return (
         <div id="navbarBg" style={{ backgroundColor: color }} >

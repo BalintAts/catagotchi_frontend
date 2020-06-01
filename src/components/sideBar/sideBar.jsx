@@ -1,7 +1,6 @@
 import React, { createContext, useState } from 'react';
-import TopSection from './topSection/topSection';
 import SideSection from './sideSection/sideSection';
-import BurgerButton from './BurgerButton/burgerButton';
+import FilterButton from './BurgerButton/filterButton';
 
 
 export const SidebarContext = createContext({
@@ -14,11 +13,11 @@ const SideBar = () => {
         <SidebarContext.Provider
             value={{ isShowSidebar, setIsShowSidebar }}
         >
-            <div className="Sidebar_container">
-                <BurgerButton onClick={() => setIsShowSidebar(true)} />
-                {/* <TopSection /> */}
-                <SideSection />
-            </div>
+            {isShowSidebar ? (<SideSection />) :
+                (
+                    <div className="Sidebar_container">
+                        <FilterButton onClick={() => setIsShowSidebar(true)} />
+                    </div>)}
         </SidebarContext.Provider>
     );
 }

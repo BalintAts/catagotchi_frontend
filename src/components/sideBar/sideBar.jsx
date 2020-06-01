@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import TopSection from './topSection/topSection';
 import SideSection from './sideSection/sideSection';
+import BurgerButton from './BurgerButton/burgerButton';
 
 
 export const SidebarContext = createContext({
@@ -14,7 +15,8 @@ const SideBar = () => {
             value={{ isShowSidebar, setIsShowSidebar }}
         >
             <div className="Sidebar_container">
-                <TopSection />
+                <BurgerButton onClick={() => setIsShowSidebar(true)} />
+                {/* <TopSection /> */}
                 <SideSection />
             </div>
         </SidebarContext.Provider>

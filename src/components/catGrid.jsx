@@ -10,8 +10,8 @@ import axios from "axios";
 
 const CatGrid = props => {
     const { filters, setFilters } = useContext(FilterContext);
-    console.log(filters);
-    const [filteredData, setFilteredData] = useState(fakeData);
+    // console.log(filters);
+    const [filteredData, setFilteredData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [title, setTitle] = useState("All Cats");
 
@@ -21,21 +21,15 @@ const CatGrid = props => {
             setTitle("My Cats")
         }
 
-
         axios.get(`http://localhost:8080/my-cats/`)
             .then(resp => {
                 console.log(resp.data);
+                setFilteredData(resp.data);
+
             })
             .catch(error => {
                 console.log(error)
             });
-        // const url = "https://localhost:8080/my-cats";
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         setFilteredData(data);
-
 
 
         // })
@@ -53,27 +47,28 @@ const CatGrid = props => {
         // console.log("catgrid useeffect");
         // console.log(props.isUsersCats);
         setIsLoading(false);
-    }, [filteredData, props.isUsersCats]);
+    }, [props.isUsersCats]);
 
 
-    return (
+    return null;
+    // (
 
-        <FilterProvider>
-            <>
-                <h1>{title}</h1>
-                {isLoading ? (<h3>Loading...</h3>) :
-                    <Grid container
-                        spacing={4}
-                        justify="center">
-                        {filteredData.map(cat =>
-                            <Grid item xs={12} sm={6} md={4} key={cat.id}>
-                                <CatCard id={cat.id} name={cat.name} img={cat.img} />
-                            </Grid>
-                        )}
-                    </Grid>}
-            </>
-        </FilterProvider >
-    );
+    // <FilterProvider>
+    //     <>
+    //         <h1>{title}</h1>
+    //         {isLoading ? (<h3>Loading...</h3>) :
+    //             <Grid container
+    //                 spacing={4}
+    //                 justify="center">
+    //                 {filteredData.map(cat =>
+    //                     <Grid item xs={12} sm={6} md={4} key={cat.id}>
+    //                         <CatCard id={cat.id} name={cat.name} img={cat.img} />
+    //                     </Grid>
+    //                 )}
+    //             </Grid>}
+    //     </>
+    // </FilterProvider >
+    // );
 };
 
 

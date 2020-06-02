@@ -3,7 +3,6 @@ import '../styles/catCard.css';
 import { Link } from 'react-router-dom';
 
 const CatCard = props => {
-    // console.log(props.img);
     return (
         // <Link to={{ pathname: '/my-cats/' + props.id, query: { url: `/my-cats/${props.match.params.id}` } }}>
         <Link to={{ pathname: '/my-cats/' + props.id }}>

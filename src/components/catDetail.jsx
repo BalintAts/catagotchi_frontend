@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { fakeData } from '../fakeData/fakeData';
 import '../styles/catCard.css';
 import axios from "axios";
 
@@ -21,7 +20,6 @@ const CatDetail = props => {
 
         axios.get(`http://localhost:8080/my-cats/${id}`)
             .then(resp => {
-                console.log(resp.data);
                 setName(resp.data.name);
                 setGender(resp.data.gender);
                 setAge(resp.data.age);

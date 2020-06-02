@@ -3,14 +3,14 @@ import React, { useState, createContext } from 'react';
 export const FilterContext = createContext();
 
 export const FilterProvider = props => {
-    const { filters, setFilters } = useState({
-        gender: "any",
+    const [filters, setFilters] = useState({
+        gender: "male",
         age: "any",
     });
 
 
     return (
-        <FilterContext.Provider value={{ filters, setFilters }}>
+        <FilterContext.Provider value={[filters, setFilters]}>
             {props.children}
         </FilterContext.Provider>
     );

@@ -47,12 +47,10 @@ const CatDetail = props => {
                     <img className="card" src={img} alt={img}></img>
                     <h1>{gender}</h1>
                     <h1>{age}</h1>
-
                 </div>
             };
         </>
     );
-
 };
 
 

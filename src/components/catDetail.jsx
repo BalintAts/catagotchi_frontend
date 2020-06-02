@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fakeData } from '../fakeData/fakeData';
 import '../styles/catCard.css';
+import axios from "axios";
 
 
 const CatDetail = props => {
@@ -23,6 +24,17 @@ const CatDetail = props => {
         setGender(fakeData[id].gender);
         setAge(fakeData[id].age);
         setImg(fakeData[id].img);
+
+        axios.get(`http://localhost:8080/my-cats/0`)
+            .then(resp => {
+                console.log(resp.data)
+            })
+            .catch(error => {
+                console.log(error)
+            });
+
+
+
         // fetch(url)
         //     .then(response =>
         //         response.json()

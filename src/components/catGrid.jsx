@@ -26,6 +26,7 @@ const CatGrid = props => {
         //         setFilteredData(data);
 
 
+
         // })
         // .then(response => response.text())
         // .then(text => console.log(text));
@@ -38,8 +39,8 @@ const CatGrid = props => {
         // if (filters.age !== "any") {
         //     setFilteredData(filteredData.filter(cat => cat.age === filters.age));
         // }
-        console.log("catgrid useeffect");
-        console.log(props.isUsersCats);
+        // console.log("catgrid useeffect");
+        // console.log(props.isUsersCats);
         setIsLoading(false);
     }, [filteredData, props.isUsersCats]);
 

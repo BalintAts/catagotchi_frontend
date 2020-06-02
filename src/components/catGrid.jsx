@@ -5,6 +5,8 @@ import { Grid } from "@material-ui/core";
 import { FilterContext } from './searchAttributes/filterContext';
 import { FilterProvider } from './searchAttributes/filterContext';
 import '../styles/catGrid.css';
+import axios from "axios";
+
 
 const CatGrid = props => {
     const { filters, setFilters } = useContext(FilterContext);
@@ -18,6 +20,15 @@ const CatGrid = props => {
         if (props.isUsersCats) {
             setTitle("My Cats")
         }
+
+
+        axios.get(`http://localhost:8080/my-cats/`)
+            .then(resp => {
+                console.log(resp.data);
+            })
+            .catch(error => {
+                console.log(error)
+            });
         // const url = "https://localhost:8080/my-cats";
         // fetch(url)
         //     .then(response => response.json())
@@ -32,7 +43,7 @@ const CatGrid = props => {
         // .then(text => console.log(text));
         // .catch(error => console.log(error));
 
-        const filteredData = fakeData;
+        // const filteredData = fakeData;
         // if (filters.gender !== "any") {
         //     setFilteredData(filteredData.filter(cat => cat.gender === filters.gender));
         // }

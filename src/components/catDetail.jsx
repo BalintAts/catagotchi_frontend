@@ -18,34 +18,19 @@ const CatDetail = props => {
         if (props.isUsersCats) {
             setTitle("This is one of my cats")
         }
-        const url = `https://localhost:8080/my-cats/${id}`;
-        // get fakedata based on id
-        setName(fakeData[id].name);
-        setGender(fakeData[id].gender);
-        setAge(fakeData[id].age);
-        setImg(fakeData[id].img);
 
-        axios.get(`http://localhost:8080/my-cats/0`)
+        axios.get(`http://localhost:8080/my-cats/${id}`)
             .then(resp => {
-                console.log(resp.data)
+                console.log(resp.data);
+                setName(resp.data.name);
+                setGender(resp.data.gender);
+                setAge(resp.data.age);
+                setImg(resp.data.img);
             })
             .catch(error => {
                 console.log(error)
             });
 
-
-
-        // fetch(url)
-        //     .then(response =>
-        //         response.json()
-        //     )
-        //     .then(data => {
-        //         console.log(data);
-        //         setName(data.name);
-        //         setGender(data.gender);
-        //         setImg(data.img);
-        //     })
-        //     .catch(error => console.log(error));;
         setIsLoading(false);
     }, [id, props.id, props.isUsersCats, img, props, setTitle]);
 

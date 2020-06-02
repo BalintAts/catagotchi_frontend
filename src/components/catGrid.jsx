@@ -21,15 +21,15 @@ const CatGrid = props => {
             setTitle("My Cats")
         }
 
-        axios.get(`http://localhost:8080/my-cats/`)
-            .then(resp => {
-                console.log(resp.data);
-                setFilteredData(resp.data);
+        // axios.get(`http://localhost:8080/my-cats/`)
+        //     .then(resp => {
+        //         console.log(resp.data);
+        //         setFilteredData(resp.data);
 
-            })
-            .catch(error => {
-                console.log(error)
-            });
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     });
 
 
         const filteredData = fakeData;
@@ -40,9 +40,8 @@ const CatGrid = props => {
             setFilteredData(filteredData.filter(cat => cat.age === filters.age));
         }
         console.log("catgrid useeffect");
-        console.log(props.isUsersCats);
         setIsLoading(false);
-    }, [filters.age, filters.gender, props.isUsersCats]);
+    }, [filters.age, setFilters.age, filters.gender, setFilters.gender, props.isUsersCats]);
 
 
     return (

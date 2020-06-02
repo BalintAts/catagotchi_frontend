@@ -41,7 +41,7 @@ const CatGrid = props => {
         }
         console.log("catgrid useeffect");
         setIsLoading(false);
-    }, [filters.age, setFilters.age, filters.gender, setFilters.gender, props.isUsersCats]);
+    }, [filters.age, filters.gender, setFilters.age, setFilters.gender, props.isUsersCats]);
 
 
     return (

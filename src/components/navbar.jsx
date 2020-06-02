@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/navbarStyle.css';
-import LinkStyle from "../styles/linkStyle";
+import LinkStyle from "../styleComponents/linkStyle";
 
 
 const Navbar = props => {

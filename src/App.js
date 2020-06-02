@@ -5,7 +5,7 @@ import Navbar from './components/navbar';
 import SideBar from './components/sideBar';
 import CatGrid from './components/catGrid';
 import { FilterProvider } from './components/searchAttributes/filterContext';
-import CatDetail from './components/catDetail';
+import CatDetail from './pages/catDetail';
 
 function App() {
   return (

@@ -7,8 +7,13 @@ import CatGrid from './components/catGrid';
 import { FilterProvider } from './components/searchAttributes/filterContext';
 import CatDetail from './pages/catDetail';
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { makeStyles } from '@material-ui/core';
 
 function App() {
+
+
+
+
   return (
     <FilterProvider>
       <Router>

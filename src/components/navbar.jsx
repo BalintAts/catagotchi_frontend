@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-// import '../styles/navbarStyle.css';
 import LinkStyle from "../styleComponents/linkStyle";
 import {
     AppBar,
@@ -26,6 +23,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const Navbar = props => {
 
+
+
+
+
     let counter = 0;
     let colors = ["#ff0000", "#00ff00", "#0000ff"];
     const [color, setColor] = useState("#0000ff");
@@ -36,14 +37,7 @@ const Navbar = props => {
     }
 
     return (
-        // <div id="navbarBg" style={{ backgroundColor: color }} >
-        //     <LinkStyle to="/">Home</LinkStyle>
-        //     <LinkStyle to="/my-cats">My cats</LinkStyle>
-        //     <button>Logout</button>
-        //     <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button>
-        // </div>
         <Box component="nav">
-            {/* <div id="navbarBg" style={{ backgroundColor: color }} > */}
             <AppBar style={{ backgroundColor: color }}>
                 <Toolbar>
                     <IconButton>

@@ -14,6 +14,8 @@ function App() {
       <Router>
         <CssBaseline />
         <Navbar />
+        {/* this Is for moving the siebar down, so it is not behind the navbar. Needs to be fixed */}
+        <h1>CATS</h1>
         <SideBar />
         <Switch>
           <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />

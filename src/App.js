@@ -6,11 +6,13 @@ import SideBar from './components/sideBar';
 import CatGrid from './components/catGrid';
 import { FilterProvider } from './components/searchAttributes/filterContext';
 import CatDetail from './pages/catDetail';
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
   return (
     <FilterProvider>
       <Router>
+        <CssBaseline />
         <Navbar />
         <SideBar />
         <Switch>

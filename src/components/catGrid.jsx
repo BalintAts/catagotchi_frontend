@@ -21,18 +21,17 @@ const CatGrid = props => {
             setTitle("My Cats")
         }
 
-        // axios.get(`http://localhost:8080/my-cats/`)
-        //     .then(resp => {
-        //         console.log(resp.data);
-        //         setFilteredData(resp.data);
+        axios.get(`http://localhost:8080/my-cats/`)
+            .then(resp => {
+                console.log(resp.data);
+                setFilteredData(resp.data);
 
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     });
+            })
+            .catch(error => {
+                console.log(error)
+            });
 
 
-        const filteredData = fakeData;
         if (filters.gender !== "any") {
             setFilteredData(filteredData.filter(cat => cat.gender === filters.gender));
         }
@@ -41,7 +40,7 @@ const CatGrid = props => {
         }
         console.log("catgrid useeffect");
         setIsLoading(false);
-    }, [filters.age, filters.gender, setFilters.age, setFilters.gender, props.isUsersCats]);
+    }, [filters.age, filters.gender, setFilters.age, setFilters.gender, props.isUsersCats, filteredData]);
 
 
     return (

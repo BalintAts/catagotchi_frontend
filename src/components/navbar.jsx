@@ -39,7 +39,7 @@ const Navbar = props => {
     return (
         <Box component="nav">
             <AppBar style={{ backgroundColor: color }}>
-                <Toolbar>
+                <Toolbar justifyContent="flex-start">
                     <IconButton>
                         <ArrowBack />
                     </IconButton>

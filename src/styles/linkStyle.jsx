@@ -8,12 +8,13 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
 background: linear-gradient();
 background-color: white;
 transition: 0.3s;
-width: 40%;
+/* width: 40%; */
 text-decoration: none;
 margin: 20px 10px 20px 10px;
 border: 2px;
 border-right-color: black;
 font-size: 40;
+display: inline-block;
 
 
 &:hover {

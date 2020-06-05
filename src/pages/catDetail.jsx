@@ -39,6 +39,22 @@ const CatDetail = props => {
         setIsLoading(false);
     }, [id, props.id, props.isUsersCats, img, props, setTitle, isHungry, isUsersCats]);
 
+    const feed = e => {
+        setIsHungry(false);
+        axios.get(`http://localhost:8080/my-cats/${id}/give-food`, isHungry)
+            .then(resp => {
+                setName(resp.data.name);
+                setGender(resp.data.gender);
+                setAge(resp.data.age);
+                setImg(resp.data.img);
+                setIsHungry(resp.data.hungry);
+                console.log(isHungry);
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
 
     return (
         <>
@@ -48,9 +64,9 @@ const CatDetail = props => {
                     <h1>{name}</h1>
                     <img className="card" src={img} alt={img}></img>
                     <h1>{gender}</h1>
-                    {isHungry ? (<h2>not hungry</h2>) : (<h2>Hungry!</h2>)}
+                    {isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
                     <h1>{age}</h1>
-                    {isUsersCats ? (<button>Feed</button>) : (<h2>no</h2>)}
+                    {isUsersCats ? (<button onClick={feed}>Feed</button>) : (<h2>no</h2>)}
                 </div>
             }
         </>

@@ -8,6 +8,7 @@ import { FilterProvider } from './components/searchAttributes/filterContext';
 import CatDetail from './pages/catDetail';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from '@material-ui/core';
+import MainGridLayout from './components/mainGridLayout';
 
 function App() {
 
@@ -16,20 +17,23 @@ function App() {
 
   return (
     <FilterProvider>
-      <Router>
-        {/* <CssBaseline /> */}
-        <Navbar />
+      {/* <Router> */}
+      {/* <CssBaseline /> */}
+      {/* <Navbar />
         {/* this Is for moving the siebar down, so it is not behind the navbar. Needs to be fixed */}
-        <h1>CATS</h1>
-        <SideBar />
+      <h1>CATS</h1>
+      {/* <SideBar />  */}
+      <MainGridLayout />
+      {/* <Router >
+
         <Switch>
           <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
           <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} />
           <Route path={"/my-cats/:id"} component={CatDetail} />
-          {/* <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
+          <Route path={"/all-cats/:catId"} component={BaseCatDetail} />
         </Switch>
-      </Router >
-    </FilterProvider>
+      </Router > */}
+    </FilterProvider >
   );
 }
 

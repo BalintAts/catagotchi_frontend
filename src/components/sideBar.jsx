@@ -26,9 +26,9 @@ const menuStyles = makeStyles({
 const SideBar = () => {
     const [visibleSideSection, setVisibleSideSection] = useState({ visible: false });
 
-    const toggleSideSection = (side, open) => {
-        setVisibleSideSection({ ...visibleSideSection, [side]: open });
-    };
+    // const toggleSideSection = (side, open) => {
+    //     setVisibleSideSection({ ...visibleSideSection, [side]: open });
+    // };
 
     const [filters, setFilters] = useContext(FilterContext);
 
@@ -47,33 +47,33 @@ const SideBar = () => {
 
     return (
         <div className={classes.filterMenuContainer}>
-            <button onClick={() => toggleSideSection("visible", true)}> filter </button>
-            <MobileRightMenuSlider open={visibleSideSection.visible}>
-                <FilterProvider>
-                    {/* <div className="sideSection_menu_Wrapper"> */}
-                    <Box component="div" className={classes.menu}>
-                        <h3>Filters</h3>
-                        <button onClick={() => toggleSideSection("visible", false)}>Hide</button>
-                        <li>
-                            <p>Gender:</p>
-                            {/* <Select options={genderOptions} onInputChange={setGender} /> */}
-                            <select value={filters.gender} onChange={handleGenderChange}>
-                                <option value="any">any</option>
-                                <option value="male">male</option>
-                                <option value="female">female</option>
-                            </select>
-                            <p>Age:</p>
-                            <select value={filters.age} onChange={handleAgeChange}>
-                                <option value="any">any</option>
-                                <option value="young">young</option>
-                                <option value="adult">adult</option>
-                                <option value="senior">senior</option>
-                            </select>
-                        </li>
-                    </Box>
-                    {/* </div> */}
-                </FilterProvider>
-            </MobileRightMenuSlider>
+            {/* <button onClick={() => toggleSideSection("visible", true)}> filter </button> */}
+            {/* <MobileRightMenuSlider open={visibleSideSection.visible}> */}
+            {/* <FilterProvider> */}
+            {/* <div className="sideSection_menu_Wrapper"> */}
+            <Box component="div" className={classes.menu}>
+                <h3>Filters</h3>
+                {/* <button onClick={() => toggleSideSection("visible", false)}>Hide</button> */}
+                <li>
+                    <p>Gender:</p>
+                    {/* <Select options={genderOptions} onInputChange={setGender} /> */}
+                    <select value={filters.gender} onChange={handleGenderChange}>
+                        <option value="any">any</option>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                    <p>Age:</p>
+                    <select value={filters.age} onChange={handleAgeChange}>
+                        <option value="any">any</option>
+                        <option value="young">young</option>
+                        <option value="adult">adult</option>
+                        <option value="senior">senior</option>
+                    </select>
+                </li>
+            </Box>
+            {/* </div> */}
+            {/* </FilterProvider> */}
+            {/* </MobileRightMenuSlider> */}
         </div>
     )
 }

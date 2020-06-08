@@ -50,22 +50,22 @@ const CatGrid = (props) => {
     ]);
 
     return (
-        <FilterProvider>
-            <>
-                <h1>{title}</h1>
-                {isLoading ? (
-                    <h3>Loading...</h3>
-                ) : (
-                        <Grid container spacing={4} justify="center">
-                            {filteredData.map((cat) => (
-                                <Grid item xs={12} sm={6} md={4} key={cat.id}>
-                                    <CatCard id={cat.id} name={cat.name} img={cat.img} />
-                                </Grid>
-                            ))}
-                        </Grid>
-                    )}
-            </>
-        </FilterProvider>
+        // <FilterProvider>
+        <>
+            <h1>{title}</h1>
+            {isLoading ? (
+                <h3>Loading...</h3>
+            ) : (
+                    <Grid container spacing={4} justify="center">
+                        {filteredData.map((cat) => (
+                            <Grid item xs={12} sm={6} md={4} key={cat.id}>
+                                <CatCard id={cat.id} name={cat.name} img={cat.img} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                )}
+        </>
+        // </FilterProvider>
     );
 };
 

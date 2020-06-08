@@ -30,7 +30,35 @@ const SideBar = () => {
 
     const [filters, setFilters] = useContext(FilterContext);
 
-    const breeds = ["add", "cirmos", "kék", "sziámi", "perzsa"];
+    const breeds = ["cirmos", "kék", "sziámi", "perzsa"];
+
+    // const breeds = [
+    //     { value: "cirmos", label: "cirmos" },
+    //     { value: "kék", label: "kék" },
+    //     { value: "sziámi", label: "sziámi" },
+    //     { value: "perzsa", label: "perzsa" },
+    // ];
+
+    // const age = [
+    //     { value: "kitten", label: "Kitten" },
+    //     { value: "young", label: "young" },
+    //     { value: "adult", label: "adult" },
+    //     { value: "senior", label: "senior" },
+
+    // ];
+
+    // const gender = [
+    //     { value: "male", label: "male" },
+    //     { value: "female", label: "female" },
+    // ];
+
+    // const size = [
+    //     { value: "kitten", label: "Kitten" },
+    //     { value: "young", label: "young" },
+    //     { value: "adult", label: "adult" },
+    //     { value: "senior", label: "senior" },
+
+    // ];
 
 
     const handleGenderChange = event => {

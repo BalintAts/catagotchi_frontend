@@ -56,9 +56,9 @@ const CatGrid = (props) => {
             {isLoading ? (
                 <h3>Loading...</h3>
             ) : (
-                    <Grid container spacing={4} justify="center">
+                    <Grid container item spacing={4} justify="flex-start">
                         {filteredData.map((cat) => (
-                            <Grid item xs={12} sm={6} md={4} key={cat.id}>
+                            <Grid item sm={6} md={4} key={cat.id}>
                                 <CatCard id={cat.id} name={cat.name} img={cat.img} />
                             </Grid>
                         ))}

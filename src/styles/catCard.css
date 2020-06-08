@@ -20,13 +20,13 @@
 }
 
 .image:hover{
-    transform: scale(1.1);
+   -webkit-transform: scale(1.1);
 }
 
 h1{
-    margin: auto;
-    width: 50%;
+    /* margin: auto; */
+    width: 100%;
     /* border: 3px solid green; */
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center
 }

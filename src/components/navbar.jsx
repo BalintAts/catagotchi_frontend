@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import {
+    BrowserRouter as Router,
+    Link,
+    Route,
+    Switch,
+} from 'react-router-dom';
 import LinkStyle from "../styleComponents/linkStyle";
 import {
     AppBar,
@@ -10,7 +16,8 @@ import {
     Divider,
     List,
     Typography,
-    Box
+    Box,
+    Grid
 } from "@material-ui/core";
 import {
     ArrowBack,
@@ -24,9 +31,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const Navbar = props => {
 
 
-
-
-
     let counter = 0;
     let colors = ["#ff0000", "#00ff00", "#0000ff"];
     const [color, setColor] = useState("#0000ff");
@@ -38,15 +42,15 @@ const Navbar = props => {
 
     return (
         <Box component="nav">
-            <AppBar style={{ backgroundColor: color }}>
-                <Toolbar justifyContent="flex-start">
+            <AppBar style={{ backgroundColor: color, position: "fixed" }}>
+                <Toolbar justify="left">
                     <IconButton>
                         <ArrowBack />
                     </IconButton>
-                    <LinkStyle to="/">Home</LinkStyle>
-                    <LinkStyle to="/my-cats">My cats</LinkStyle>
-                    <button>Logout</button>
-                    <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button>
+                    <LinkStyle to="/" style={{ textDecoration: "none", justify: "left" }}>Home</LinkStyle>
+                    <LinkStyle to="/my-cats" style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
+                    <button style={{ justify: "right" }}>Logout</button>
+                    {/* <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button> */}
                 </Toolbar>
             </AppBar>
         </Box >

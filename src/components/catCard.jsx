@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/catCard.css';
+// import '../styles/catCard.css';
 import { Link } from 'react-router-dom';
 
 const CatCard = props => {

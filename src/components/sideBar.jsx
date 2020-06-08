@@ -2,10 +2,13 @@ import React, { createContext, useState, useContext } from 'react';
 import MobileRightMenuSlider from "@material-ui/core/Drawer";
 import { FilterContext } from './searchAttributes/filterContext';
 import { FilterProvider } from './searchAttributes/filterContext';
-import { grey } from '@material-ui/core/colors';
+import { grey, blue } from '@material-ui/core/colors';
 import { Height } from '@material-ui/icons';
 import { Box } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Hidden } from "@material-ui/core";
+import Select from "react-select";
+
 
 
 export const SidebarContext = createContext({});
@@ -24,13 +27,10 @@ const menuStyles = makeStyles({
 });
 
 const SideBar = () => {
-    const [visibleSideSection, setVisibleSideSection] = useState({ visible: false });
-
-    // const toggleSideSection = (side, open) => {
-    //     setVisibleSideSection({ ...visibleSideSection, [side]: open });
-    // };
 
     const [filters, setFilters] = useContext(FilterContext);
+
+    const breeds = ["add", "cirmos", "kék", "sziámi", "perzsa"];
 
 
     const handleGenderChange = event => {
@@ -47,33 +47,47 @@ const SideBar = () => {
 
     return (
         <div className={classes.filterMenuContainer}>
-            {/* <button onClick={() => toggleSideSection("visible", true)}> filter </button> */}
-            {/* <MobileRightMenuSlider open={visibleSideSection.visible}> */}
-            {/* <FilterProvider> */}
-            {/* <div className="sideSection_menu_Wrapper"> */}
             <Box component="div" className={classes.menu}>
-                <h3>Filters</h3>
-                {/* <button onClick={() => toggleSideSection("visible", false)}>Hide</button> */}
-                <li>
-                    <p>Gender:</p>
-                    {/* <Select options={genderOptions} onInputChange={setGender} /> */}
-                    <select value={filters.gender} onChange={handleGenderChange}>
-                        <option value="any">any</option>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                    <p>Age:</p>
-                    <select value={filters.age} onChange={handleAgeChange}>
-                        <option value="any">any</option>
-                        <option value="young">young</option>
-                        <option value="adult">adult</option>
-                        <option value="senior">senior</option>
-                    </select>
-                </li>
+                <h3 style={{
+                    margin: "30px"
+                }}>Filters </h3>
+                < Grid direction="column" >
+                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                        <p>Breed:</p>
+                        <select value={filters.age} onChange={handleAgeChange} style={{ width: "100%" }} >
+                            {breeds.map((breed) => (
+                                <option value={breed}>{breed}</option>
+                            ))};
+                        </select>
+                    </Grid>
+                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                        <p>Gender:</p>
+                        <select value={filters.gender} onChange={handleGenderChange} style={{ width: "100%" }} >
+                            <option value="add">add</option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </Grid>
+                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                        <p>Age:</p>
+                        <select value={filters.age} onChange={handleAgeChange} style={{ width: "100%" }}>
+                            <option value="add">add</option>
+                            <option value="young">young</option>
+                            <option value="adult">adult</option>
+                            <option value="senior">senior</option>
+                        </select>
+                    </Grid>
+                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                        <p>Size:</p>
+                        <select value={filters.age} onChange={handleAgeChange} style={{ width: "100%" }} >
+                            <option value="add">add</option>
+                            <option value="young">young</option>
+                            <option value="adult">adult</option>
+                            <option value="senior">senior</option>
+                        </select>
+                    </Grid>
+                </Grid>
             </Box>
-            {/* </div> */}
-            {/* </FilterProvider> */}
-            {/* </MobileRightMenuSlider> */}
         </div>
     )
 }

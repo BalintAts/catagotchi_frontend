@@ -30,93 +30,82 @@ const SideBar = () => {
 
     const [filters, setFilters] = useContext(FilterContext);
 
-    const breeds = ["cirmos", "kék", "sziámi", "perzsa"];
-
-    // const breeds = [
-    //     { value: "cirmos", label: "cirmos" },
-    //     { value: "kék", label: "kék" },
-    //     { value: "sziámi", label: "sziámi" },
-    //     { value: "perzsa", label: "perzsa" },
-    // ];
-
-    // const age = [
-    //     { value: "kitten", label: "Kitten" },
-    //     { value: "young", label: "young" },
-    //     { value: "adult", label: "adult" },
-    //     { value: "senior", label: "senior" },
-
-    // ];
-
-    // const gender = [
-    //     { value: "male", label: "male" },
-    //     { value: "female", label: "female" },
-    // ];
-
-    // const size = [
-    //     { value: "kitten", label: "Kitten" },
-    //     { value: "young", label: "young" },
-    //     { value: "adult", label: "adult" },
-    //     { value: "senior", label: "senior" },
-
-    // ];
+    const [breedsFilter, setBreedsFilter] = useState([]);
+    const [genderFilter, setGenderFilter] = useState([]);
+    const [ageFilter, setAgeFilter] = useState([]);
+    const [sizeFilter, setSizeFilter] = useState([]);
 
 
-    const handleGenderChange = event => {
-        let newGender = event.target.value;
-        setFilters(Object.assign(filters, { gender: newGender }));
+    const breeds = [
+        { value: "cirmos", label: "cirmos" },
+        { value: "kék", label: "kék" },
+        { value: "sziámi", label: "sziámi" },
+        { value: "perzsa", label: "perzsa" },
+    ];
+
+    const ages = [
+        { value: "kitten", label: "Kitten" },
+        { value: "young", label: "young" },
+        { value: "adult", label: "adult" },
+        { value: "senior", label: "senior" },
+
+    ];
+
+    const genders = [
+        { value: "male", label: "male" },
+        { value: "female", label: "female" },
+    ];
+
+    const sizes = [
+        { value: "kitten", label: "Kitten" },
+        { value: "young", label: "young" },
+        { value: "adult", label: "adult" },
+        { value: "senior", label: "senior" },
+
+    ];
+
+
+    // const handleGenderChange = event => {
+    //     let newGender = event.target.value;
+    //     setFilters(Object.assign(filters, { gender: newGender }));
+    // }
+
+    // const handleAgeChange = event => {
+    //     let newAge = event.target.value;
+    //     setFilters(Object.assign(filters, { age: newAge }));
+    // }
+
+
+    const customTheme = (theme) => {
+        return {
+            ...theme,
+            colors: {
+                ...theme.colors,
+                primary25: "blue"
+            }
+        }
     }
-
-    const handleAgeChange = event => {
-        let newAge = event.target.value;
-        setFilters(Object.assign(filters, { age: newAge }));
-    }
-
-    const classes = menuStyles();
 
     return (
-        <div className={classes.filterMenuContainer}>
-            <Box component="div" className={classes.menu}>
-                <h3 style={{
-                    margin: "30px"
-                }}>Filters </h3>
-                < Grid direction="column" >
-                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
-                        <p>Breed:</p>
-                        <select value={filters.age} onChange={handleAgeChange} style={{ width: "100%" }} >
-                            {breeds.map((breed) => (
-                                <option value={breed}>{breed}</option>
-                            ))};
-                        </select>
-                    </Grid>
-                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
-                        <p>Gender:</p>
-                        <select value={filters.gender} onChange={handleGenderChange} style={{ width: "100%" }} >
-                            <option value="add">add</option>
-                            <option value="male">male</option>
-                            <option value="female">female</option>
-                        </select>
-                    </Grid>
-                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
-                        <p>Age:</p>
-                        <select value={filters.age} onChange={handleAgeChange} style={{ width: "100%" }}>
-                            <option value="add">add</option>
-                            <option value="young">young</option>
-                            <option value="adult">adult</option>
-                            <option value="senior">senior</option>
-                        </select>
-                    </Grid>
-                    <Grid item style={{ margin: "30px", fontSize: "30px" }}>
-                        <p>Size:</p>
-                        <select value={filters.age} onChange={handleAgeChange} style={{ width: "100%" }} >
-                            <option value="add">add</option>
-                            <option value="young">young</option>
-                            <option value="adult">adult</option>
-                            <option value="senior">senior</option>
-                        </select>
-                    </Grid>
-                </Grid>
-            </Box>
-        </div>
+        < Grid direction="column" >
+            <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                <p>Breed:</p>
+                <Select options={breeds} placeholder="Select breeds" theme={customTheme} isSearchable isMulti />
+            </Grid>
+            <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                <p>Gender:</p>
+                <Select />
+            </Grid>
+            <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                <p>Age:</p>
+                <Select />
+            </Grid>
+            <Grid item style={{ margin: "30px", fontSize: "30px" }}>
+                <p>Size:</p>
+                <Select />
+            </Grid>
+        </Grid>
+
     )
 }
 

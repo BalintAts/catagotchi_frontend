@@ -30,7 +30,7 @@ const CatGrid = (props) => {
                 console.log(error);
             });
 
-        const filteredData = fakeData;
+        // const filteredData = fakeData;
         if (filters.gender !== "any") {
             setFilteredData(
                 filteredData.filter((cat) => cat.gender === filters.gender)
@@ -41,13 +41,7 @@ const CatGrid = (props) => {
         }
         console.log("catgrid useeffect");
         setIsLoading(false);
-    }, [
-        filters.age,
-        filters.gender,
-        setFilters.age,
-        setFilters.gender,
-        props.isUsersCats,
-    ]);
+    }, [filters.age, filters.gender, setFilters.age, setFilters.gender, props.isUsersCats, filteredData]);
 
     return (
         // <FilterProvider>
@@ -56,7 +50,7 @@ const CatGrid = (props) => {
             {isLoading ? (
                 <h3>Loading...</h3>
             ) : (
-                    <Grid container item spacing={4} justify="flex-start">
+                    <Grid container item spacing={4} justify="flex_start">
                         {filteredData.map((cat) => (
                             <Grid item sm={6} md={4} key={cat.id}>
                                 <CatCard id={cat.id} name={cat.name} img={cat.img} />

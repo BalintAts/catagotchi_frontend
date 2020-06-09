@@ -15,6 +15,8 @@
 }
 
 .image{
+  margin: "10px";
+
     -webkit-transform: scale(1);
     -webkit-transition: -webkit-transform 0.5 ease;
 }

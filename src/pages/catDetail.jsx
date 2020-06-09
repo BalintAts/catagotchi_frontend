@@ -17,6 +17,7 @@ const CatDetail = props => {
 
 
     useEffect(() => {
+        console.log("CatDetail");
         setId(props.match.params.id);
         setIsUsersCat(props.isUsersCats);
         //DEBUG for isUser's cat:

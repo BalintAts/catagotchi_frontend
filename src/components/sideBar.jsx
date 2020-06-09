@@ -1,34 +1,12 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import MobileRightMenuSlider from "@material-ui/core/Drawer";
-import { FilterContext } from './searchAttributes/filterContext';
-import { FilterProvider } from './searchAttributes/filterContext';
-import { grey, blue } from '@material-ui/core/colors';
-import { Height, ContactsOutlined } from '@material-ui/icons';
-import { Box } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Hidden } from "@material-ui/core";
+import React, { createContext, useState, useEffect } from 'react';
 import Select from "react-select";
+import { Grid } from "@material-ui/core";
 
 
 
 export const SidebarContext = createContext({});
 
-//styles:
-const menuStyles = makeStyles({
-    filterMenuContainer: {
-        width: 500,
-        background: grey,
-
-    },
-    menu: {
-        width: 250,
-    }
-
-});
-
 const SideBar = () => {
-
-    // const [filters, setFilters] = useContext(FilterContext);
 
     const [breedsFilter, setBreedsFilter] = useState([]);
     const [genderFilter, setGenderFilter] = useState([]);
@@ -70,7 +48,6 @@ const SideBar = () => {
         genderFilter.map(item => filtersToSend.push(item.value));
         ageFilter.map(item => filtersToSend.push(item.value));
         sizeFilter.map(item => filtersToSend.push(item.value));
-        console.log(filtersToSend);
     }, [ageFilter, breedsFilter, genderFilter, sizeFilter]);
 
 

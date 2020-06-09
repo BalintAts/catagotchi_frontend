@@ -10,25 +10,22 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
 }
 
+.card:hover.frame.image {
+  -webkit-transform: scale(1.1);
+}
+
 .frame {
   overflow: hidden;  
 }
 
-.image{
+/* .image{
   margin: "10px";
 
     -webkit-transform: scale(1);
     -webkit-transition: -webkit-transform 0.5 ease;
 }
 
-.image:hover{
+.hovered{
    -webkit-transform: scale(1.1);
-}
+} */
 
-h1{
-    /* margin: auto; */
-    width: 100%;
-    /* border: 3px solid green; */
-    /* padding: 10px; */
-    text-align: center
-}

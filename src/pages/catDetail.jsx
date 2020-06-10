@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import '../styles/catCard.css';
 import axios from "axios";
 import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
+import { Grid } from '@material-ui/core';
 
 
 
@@ -82,15 +83,23 @@ const CatDetail = props => {
             <h1> behind the navbar</h1>
             {isUsersCats ? (<h2>This is one of my cats</h2>) : (<h2>This is not my cat</h2>)}
             {isLoading ? (<h3> Loading...</h3 >) :
-                <div>
-                    <h1>{name}</h1>
-                    <img className="card" src={img} alt={img}></img>
-                    <h1>{gender}</h1>
-                    {isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
-                    <h1>{age}</h1>
-                    {isUsersCats ? (<button onClick={feed}>Feed</button>) : (<h2>no</h2>)}
-                    {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
-                </div>
+                <Grid container justify="space-between">
+                    <Grid contatiner item direction="column" justify="space-between">
+                        <Grid item style={{ margin: "30px" }}>
+                            <img className="card" src={img} alt={img}></img>
+                        </Grid>
+                        <h1>{name}</h1>
+                        <h1>{gender}</h1>
+                        <h1>{age}</h1>
+                        {isUsersCats ? (<button onClick={feed}>Feed</button>) : (<h2>no</h2>)}
+                        {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
+                    </Grid>
+                    <Grid contatiner item direction="column" justify="space-around">
+                        <Grid item>
+                            {isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
+                        </Grid>
+                    </Grid>
+                </Grid>
             }
         </>
     );

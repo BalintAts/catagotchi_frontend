@@ -1,34 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
-
-import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    Switch,
-} from 'react-router-dom';
 import LinkStyle from "../styleComponents/linkStyle";
-import {
-    AppBar,
-    Toolbar,
-    ListItem,
-    IconButton,
-    ListItemText,
-    Avatar,
-    Divider,
-    List,
-    Typography,
-    Box,
-    Grid
-} from "@material-ui/core";
-import {
-    ArrowBack,
-    AssignmentInd,
-    Home,
-    Apps,
-    ContactMail
-} from "@material-ui/icons";
-import { makeStyles } from "@material-ui/core/styles";
+import { AppBar, Toolbar, Box, } from "@material-ui/core";
 
 const Navbar = props => {
 

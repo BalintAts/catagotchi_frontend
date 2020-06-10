@@ -16,10 +16,10 @@ const CatGrid = (props) => {
 
     useEffect(() => {
         console.log("useffect called");
+        let url = isUsersCats ? (`http://localhost:8080/my-cats/`) : (`http://localhost:8080/`);
         axios
-            .get(`http://localhost:8080/my-cats/`)
+            .get(url)
             .then((resp) => {
-                console.log(resp);
                 setFilteredData(resp.data);
             })
             .catch((error) => {
@@ -27,7 +27,7 @@ const CatGrid = (props) => {
             });
         console.log("catgrid useeffect");
         setIsLoading(false);
-    }, [filteredData, setIsUsersCats]);
+    }, [isUsersCats, setIsUsersCats]);
 
     return (
         <>

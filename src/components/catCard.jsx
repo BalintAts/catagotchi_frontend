@@ -33,7 +33,7 @@ const CatCard = props => {
                                 <img className="image" src={props.img} alt={props.img}></img>
                             </div>
                             <h1 style={{ width: "100%" }}>{props.name}</h1>
-                            <button>adopt</button>
+
                         </div>
                     </Link>
                 )

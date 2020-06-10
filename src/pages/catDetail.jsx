@@ -6,14 +6,15 @@ import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats
 
 
 const CatDetail = props => {
-    const [name, setName] = useState("a");
-    const [gender, setGender] = useState("a");
-    const [age, setAge] = useState("a");
+    const [name, setName] = useState();
+    const [gender, setGender] = useState();
+    const [age, setAge] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    const [setTitle] = useState("Név");
-    const [img, setImg] = useState("https://d2ph5fj80uercy.cloudfront.net/04/cat2972.jpg");
-    const [id, setId] = useState(0);
-    const [isHungry, setIsHungry] = useState(false);
+    const [isAdopted, setIsAdopted] = useState(false);
+    const [setTitle] = useState();
+    const [img, setImg] = useState();
+    const [id, setId] = useState();
+    const [isHungry, setIsHungry] = useState();
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
 
 
@@ -21,42 +22,60 @@ const CatDetail = props => {
 
     useEffect(() => {
         console.log("CatDetail");
-        // setId(props.match.params.id);
-        setId(props.id);
-
-
-        axios.get(`http://localhost:8080/my-cats/${id}`)
+        setId(props.match.params.id);
+        console.log(props);
+        let url = isUsersCats ? (`http://localhost:8080/my-cats/${id}`) : (`http://localhost:8080/${id}`);
+        console.log(url);
+        axios.get(url)
             .then(resp => {
+                setId(props.match.params.id);
                 setName(resp.data.name);
                 setGender(resp.data.gender);
                 setAge(resp.data.age);
                 setImg(resp.data.img);
                 setIsHungry(resp.data.hungry);
-                console.log(isHungry);
+                setIsAdopted(resp.data.isAdopted);
+
+                console.log(resp);
             })
             .catch(error => {
                 console.log(error)
             });
 
         setIsLoading(false);
-    }, [id, props.id, img, props, setTitle, isHungry]);
+    }, [id, props.id, img, props, setTitle, isHungry, isUsersCats]);
 
     const feed = e => {
         setIsHungry(false);
-        axios.get(`http://localhost:8080/my-cats/${id}/give-food`, isHungry)
+        axios.get(`http://localhost:8080/my-cats/${id}/give-food`)
             .then(resp => {
                 setName(resp.data.name);
                 setGender(resp.data.gender);
                 setAge(resp.data.age);
                 setImg(resp.data.img);
                 setIsHungry(resp.data.hungry);
-                console.log(isHungry);
+                setIsAdopted(resp.data.isAdopted);
             })
             .catch(error => {
                 console.log(error)
             });
     }
 
+    const adopt = e => {
+        axios.get(`http://localhost:8080/${id}/adopt`)
+            .then(resp => {
+                console.log(resp);
+                setName(resp.data.name);
+                setGender(resp.data.gender);
+                setAge(resp.data.age);
+                setImg(resp.data.img);
+                setIsHungry(resp.data.hungry);
+                setIsAdopted(resp.data.isAdopted);;
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
 
     return (
         <>
@@ -70,6 +89,7 @@ const CatDetail = props => {
                     {isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
                     <h1>{age}</h1>
                     {isUsersCats ? (<button onClick={feed}>Feed</button>) : (<h2>no</h2>)}
+                    {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
                 </div>
             }
         </>

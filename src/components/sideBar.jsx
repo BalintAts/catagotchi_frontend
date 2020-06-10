@@ -35,19 +35,20 @@ const SideBar = () => {
     ];
 
     const sizes = [
-        { value: "kitten", label: "Kitten" },
-        { value: "young", label: "youn g" },
-        { value: "adult", label: "adult" },
-        { value: "senior", label: "senior" },
-
+        { value: "plank_length", label: "plank length" },
+        { value: "small", label: "small" },
+        { value: "normal", label: "normal" },
+        { value: "big", label: "big" },
+        { value: "uy_scuti", label: "UY Scuti" },
     ];
 
     useEffect(() => {
         let filtersToSend = [];
-        breedsFilter.map(item => filtersToSend.push(item.value));
-        genderFilter.map(item => filtersToSend.push(item.value));
-        ageFilter.map(item => filtersToSend.push(item.value));
-        sizeFilter.map(item => filtersToSend.push(item.value));
+        breedsFilter && breedsFilter.map(item => filtersToSend.push(item.value));
+        genderFilter && genderFilter.map(item => filtersToSend.push(item.value));
+        ageFilter && ageFilter.map(item => filtersToSend.push(item.value));
+        sizeFilter && sizeFilter.map(item => filtersToSend.push(item.value));
+        console.log(filtersToSend);
     }, [ageFilter, breedsFilter, genderFilter, sizeFilter]);
 
 

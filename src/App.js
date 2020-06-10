@@ -29,11 +29,11 @@ function App() {
           <Route path={"/my-cats/:id"} component={CatDetail} />
           <Route path={"/all-cats/:catId"} component={BaseCatDetail} /> */}
 
-          <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
-          <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} />
+          {/* <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
+          <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} /> */}
           {/* catDetail also needs an isUsersCats property */}
-          <Route path={"/my-cats/:id"} component={CatDetail} />
-          <Route path={"/:id"} component={CatDetail} />
+          {/* <Route path={"/my-cats/:id"} component={CatDetail} />
+          <Route path={"/:id"} component={CatDetail} /> */}
         </Switch>
       </Router >
 

@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../styles/catCard.css';
 import axios from "axios";
+import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
+
 
 
 const CatDetail = props => {
@@ -12,16 +14,15 @@ const CatDetail = props => {
     const [img, setImg] = useState("https://d2ph5fj80uercy.cloudfront.net/04/cat2972.jpg");
     const [id, setId] = useState(0);
     const [isHungry, setIsHungry] = useState(false);
-    const [isUsersCats, setIsUsersCat] = useState(false);
+    const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
+
 
 
 
     useEffect(() => {
         console.log("CatDetail");
-        setId(props.match.params.id);
-        setIsUsersCat(props.isUsersCats);
-        //DEBUG for isUser's cat:
-        setIsUsersCat(true);
+        // setId(props.match.params.id);
+        setId(props.id);
 
 
         axios.get(`http://localhost:8080/my-cats/${id}`)
@@ -38,7 +39,7 @@ const CatDetail = props => {
             });
 
         setIsLoading(false);
-    }, [id, props.id, props.isUsersCats, img, props, setTitle, isHungry, isUsersCats]);
+    }, [id, props.id, img, props, setTitle, isHungry]);
 
     const feed = e => {
         setIsHungry(false);
@@ -59,6 +60,7 @@ const CatDetail = props => {
 
     return (
         <>
+            <h1> behind the navbar</h1>
             {isUsersCats ? (<h2>This is one of my cats</h2>) : (<h2>This is not my cat</h2>)}
             {isLoading ? (<h3> Loading...</h3 >) :
                 <div>

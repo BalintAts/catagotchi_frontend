@@ -43,12 +43,11 @@ const Navbar = props => {
     return (
         <Box component="nav">
             <AppBar style={{ backgroundColor: color, position: "fixed" }}>
-                <Toolbar justify="left">
-                    <IconButton>
-                        <ArrowBack />
-                    </IconButton>
-                    <LinkStyle to="/" style={{ textDecoration: "none", justify: "left" }}>Home</LinkStyle>
-                    <LinkStyle to="/my-cats" style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
+                <Toolbar style={{ justifyContent: "space-between" }}>
+                    <div >
+                        <LinkStyle to="/" style={{ textDecoration: "none", justify: "left" }}>Home</LinkStyle>
+                        <LinkStyle to="/my-cats" style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
+                    </div>
                     <button style={{ justify: "right" }}>Logout</button>
                     {/* <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button> */}
                 </Toolbar>

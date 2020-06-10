@@ -19,9 +19,11 @@ function App() {
   return (
     <>
       <Router >
+        <Navbar />
+        <MainGridLayout />
 
         <Switch>
-          <MainGridLayout />
+
           {/* <Route path={"/"} exact component={() => <CatGrid isUsersCats={false} />} />
           <Route path={"/my-cats"} exact component={() => <CatGrid isUsersCats={true} />} />
           <Route path={"/my-cats/:id"} component={CatDetail} />

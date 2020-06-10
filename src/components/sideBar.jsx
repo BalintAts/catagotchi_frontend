@@ -36,7 +36,7 @@ const SideBar = () => {
 
     const sizes = [
         { value: "kitten", label: "Kitten" },
-        { value: "young", label: "young" },
+        { value: "young", label: "youn g" },
         { value: "adult", label: "adult" },
         { value: "senior", label: "senior" },
 

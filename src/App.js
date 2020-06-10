@@ -20,7 +20,6 @@ function App() {
     <IsUsersCatsProvider>
       <Router >
         <Navbar />
-
         <Switch>
           <Route path={"/"} exact component={() => <MainGridLayout isUsersCats={false} />} />
           <Route path={"/my-cats"} exact component={() => <MainGridLayout isUsersCats={true} />} />

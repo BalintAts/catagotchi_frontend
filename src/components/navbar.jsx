@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
+
 import {
     BrowserRouter as Router,
     Link,
@@ -30,6 +32,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const Navbar = props => {
 
+    const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
 
     let counter = 0;
     let colors = ["#ff0000", "#00ff00", "#0000ff"];
@@ -40,13 +43,21 @@ const Navbar = props => {
         setColor(colors[counter]);
     }
 
+    const changeToMyCats = e => {
+        setIsUsersCats(true);
+    }
+
+    const changeToALLCats = e => {
+        setIsUsersCats(false);
+    }
+
     return (
         <Box component="nav">
             <AppBar style={{ backgroundColor: color, position: "fixed" }}>
                 <Toolbar style={{ justifyContent: "space-between" }}>
                     <div >
-                        <LinkStyle to="/" style={{ textDecoration: "none", justify: "left" }}>Home</LinkStyle>
-                        <LinkStyle to="/my-cats" style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
+                        <LinkStyle to="/" onClick={changeToALLCats} style={{ textDecoration: "none", justify: "left" }}>Home</LinkStyle>
+                        <LinkStyle to="/my-cats" onClick={changeToMyCats} style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
                     </div>
                     <button style={{ justify: "right" }}>Logout</button>
                     {/* <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button> */}

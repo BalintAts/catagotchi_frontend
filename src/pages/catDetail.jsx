@@ -23,8 +23,8 @@ const CatDetail = props => {
 
     useEffect(() => {
         console.log("CatDetail");
-        setId(props.match.params.id);
         console.log(props);
+        setId(props.match.params.id);
         let url = isUsersCats ? (`http://localhost:8080/my-cats/${id}`) : (`http://localhost:8080/${id}`);
         console.log(url);
         axios.get(url)
@@ -44,7 +44,7 @@ const CatDetail = props => {
             });
 
         setIsLoading(false);
-    }, [id, props.id, img, props, setTitle, isHungry, isUsersCats]);
+    }, [id, props.match.params.id, isUsersCats, isAdopted, props]);
 
     const feed = e => {
         setIsHungry(false);
@@ -63,6 +63,7 @@ const CatDetail = props => {
     }
 
     const adopt = e => {
+        console.log("adopt")
         axios.get(`http://localhost:8080/${id}/adopt`)
             .then(resp => {
                 console.log(resp);
@@ -71,7 +72,8 @@ const CatDetail = props => {
                 setAge(resp.data.age);
                 setImg(resp.data.img);
                 setIsHungry(resp.data.hungry);
-                setIsAdopted(resp.data.isAdopted);;
+                setIsAdopted(resp.data.isAdopted);
+                setIsUsersCats(true);
             })
             .catch(error => {
                 console.log(error)
@@ -91,7 +93,7 @@ const CatDetail = props => {
                         <h1>{name}</h1>
                         <h1>{gender}</h1>
                         <h1>{age}</h1>
-                        {isUsersCats ? (<button onClick={feed}>Feed</button>) : (<h2>no</h2>)}
+                        {isUsersCats && (<button onClick={feed}>Feed</button>)}
                         {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
                     </Grid>
                     <Grid contatiner item direction="column" justify="space-around">

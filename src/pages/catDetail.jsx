@@ -80,12 +80,17 @@ const CatDetail = props => {
             });
     }
 
+    const ManageCatMood = () => {
+        let url = "https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png";
+        return url;
+    }
+
     return (
         <>
             <h1> behind the navbar</h1>
             {isUsersCats ? (<h2>This is one of my cats</h2>) : (<h2>This is not my cat</h2>)}
             {isLoading ? (<h3> Loading...</h3 >) :
-                <Grid container justify="space-between">
+                <Grid container justify="space-around">
                     <Grid contatiner item direction="column" justify="space-between">
                         <Grid item style={{ margin: "30px" }}>
                             <img className="card" src={img} alt={img}></img>
@@ -93,14 +98,27 @@ const CatDetail = props => {
                         <h1>{name}</h1>
                         <h1>{gender}</h1>
                         <h1>{age}</h1>
-                        {isUsersCats && (<button onClick={feed}>Feed</button>)}
+
                         {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
+                    </Grid>
+                    <Grid item>
+                        <img src={"https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png"} alt={"https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png"} width="500" height="600"></img>
                     </Grid>
                     <Grid contatiner item direction="column" justify="space-around">
                         <Grid item>
-                            {isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
+                            {isUsersCats && (<button onClick={feed}>Feed</button>)}
+                            {isHungry && isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
+                        </Grid>
+                        <Grid item>
+                            {isUsersCats && (<button onClick={feed}>Thisty</button>)}
+                            {isHungry && isHungry ? (<h2>Thirsty!</h2>) : (<h2>Not thirsty</h2>)}
+                        </Grid>
+                        <Grid item>
+                            {isUsersCats && (<button onClick={feed}>Cleen Litterbox</button>)}
+                            {isHungry && isHungry ? (<h2>My box is full with poop!</h2>) : (<h2>Pooping is fun!</h2>)}
                         </Grid>
                     </Grid>
+
                 </Grid>
             }
         </>

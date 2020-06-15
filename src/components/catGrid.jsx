@@ -9,7 +9,7 @@ import { IsUsersCatsContext } from "../contexts/isUsersCats_context";
 
 const CatGrid = (props) => {
 
-    const [filteredData, setFilteredData] = useState(fakeData);
+    const [filteredData, setFilteredData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [title, setTitle] = useState("All Cats");
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);

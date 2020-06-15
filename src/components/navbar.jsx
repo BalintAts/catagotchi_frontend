@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
 import LinkStyle from "../styleComponents/linkStyle";
 import { AppBar, Toolbar, Box, } from "@material-ui/core";
+import Dialog from '@material-ui/core/Dialog';
 
 const Navbar = props => {
 
@@ -43,6 +44,9 @@ const Navbar = props => {
                         <LinkStyle to="/my-cats" onClick={changeToMyCats} style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
                     </div>
                     <button onClick={handleOpenLogin} style={{ justify: "right" }}>Logout</button>
+                    <Dialog open={openLogin} onClose={handleCloseLogin} aria-labelledby="form-dialog-title">
+                        modal
+                    </Dialog>
                     {/* <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button> */}
                 </Toolbar>
             </AppBar>

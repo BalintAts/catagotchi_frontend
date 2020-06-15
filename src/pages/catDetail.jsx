@@ -103,14 +103,18 @@ const CatDetail = props => {
 
                         {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
                     </Grid>
-                    <Grid container item direction="column" xs={4}>
+                    <Grid container item direction="column" xs={4} justify="center"
+                        style={{ minHeight: '10vh' }}>
                         <Grid item>
                             <img src="https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png" alt="https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png" width="500" height="600"></img>
                         </Grid>
-                        <Grid item>
+                        <Grid container item
+                            justify="center"
+                            style={{ minHeight: '10vh' }}>
                             <img src={Arrow} alt={Arrow} width="250" height="250"></img>
                         </Grid>
                     </Grid>
+
                     <Grid contatiner item direction="column" justify="space-around" xs={4}>
                         <Grid item>
                             {isUsersCats && (<button onClick={feed}>Feed</button>)}
@@ -126,7 +130,7 @@ const CatDetail = props => {
                         </Grid>
                     </Grid>
 
-                </Grid>
+                </Grid >
             }
         </>
     );

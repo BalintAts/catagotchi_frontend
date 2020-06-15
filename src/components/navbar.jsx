@@ -6,6 +6,16 @@ import { AppBar, Toolbar, Box, } from "@material-ui/core";
 const Navbar = props => {
 
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
+    const [openLogin, setOpenLogin] = useState(false);
+
+    const handleOpenLogin = () => {
+        setOpenLogin(true);
+    }
+
+    const handleCloseLogin = () => {
+        setOpenLogin(false);
+    }
+
 
     let counter = 0;
     let colors = ["#ff0000", "#00ff00", "#0000ff"];
@@ -32,7 +42,7 @@ const Navbar = props => {
                         <LinkStyle to="/" onClick={changeToALLCats} style={{ textDecoration: "none", justify: "left" }}>Home</LinkStyle>
                         <LinkStyle to="/my-cats" onClick={changeToMyCats} style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
                     </div>
-                    <button style={{ justify: "right" }}>Logout</button>
+                    <button onClick={handleOpenLogin} style={{ justify: "right" }}>Logout</button>
                     {/* <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button> */}
                 </Toolbar>
             </AppBar>

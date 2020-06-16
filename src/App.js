@@ -23,7 +23,7 @@ function App() {
         <Switch>
           <Route path={"/"} exact component={() => <MainGridLayout isUsersCats={false} />} />
           <Route path={"/my-cats"} exact component={() => <MainGridLayout isUsersCats={true} />} />
-          <Route path={"my-cats/:id"} component={CatDetail} />
+          <Route path={"/my-cats/:id"} component={CatDetail} />
           <Route path={"/:id"} component={CatDetail} />
 
         </Switch>

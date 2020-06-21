@@ -30,7 +30,7 @@ const CatCard = props => {
 
                         <div className="card text-center">
                             <div className="frame" style={{ margin: "20px" }}>
-                                <img className="image" src={props.img} alt={props.img}></img>
+                                <img className="image" src={props.img} alt={props.img} width="256" height="256"></img>
                             </div>
                             <h1 style={{ width: "100%" }}>{props.name}</h1>
 

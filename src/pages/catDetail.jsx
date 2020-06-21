@@ -3,7 +3,7 @@ import '../styles/catCard.css';
 import axios from "axios";
 import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
 import { Grid } from '@material-ui/core';
-import Arrow from './arrow.jpg';
+import LinearProgressWithLabel from '@material-ui/core/LinearProgress';
 
 
 
@@ -114,7 +114,7 @@ const CatDetail = props => {
                             <img src="https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png" alt="https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png" width="500" height="600"></img>
                         </Grid>
                         <Grid item>
-                            <img src={Arrow} alt={Arrow} width="250" height="250"></img>
+                            <LinearProgressWithLabel variant="determinate" value={70} />
                         </Grid>
                     </Grid>
                     <Grid contatiner item direction="column" justify="space-around" xs={4}>

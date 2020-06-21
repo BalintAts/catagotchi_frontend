@@ -1,19 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import '../styles/catCard.css';
 import { Link } from 'react-router-dom';
 import { IsUsersCatsContext } from '../contexts/isUsersCats_context';
 
 const CatCard = props => {
 
-    const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
-
-
-
-    // const hovered, add classname to image
+    const [isUsersCats] = useContext(IsUsersCatsContext);
 
     return (
-
-        // <Link to={{ pathname: '/my-cats/' + props.id, query: { url: `/my-cats/${props.match.params.id}` } }}>
         <>
             {isUsersCats ? (
                 <Link to={{ pathname: '/my-cats/' + props.id }} style={{ textDecoration: "none" }}>

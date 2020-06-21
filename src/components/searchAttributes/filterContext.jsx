@@ -4,8 +4,6 @@ export const FilterContext = createContext();
 
 export const FilterProvider = props => {
     const [filters, setFilters] = useState({
-        gender: "any",
-        age: "any",
     });
 
 

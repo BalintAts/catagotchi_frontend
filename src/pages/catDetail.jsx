@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/catCard.css';
 import axios from "axios";
-import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
+import { IsUsersCatsContext } from "../contexts/isUsersCats_context";
 import { Grid } from '@material-ui/core';
 import LinearProgressWithLabel from '@material-ui/core/LinearProgress';
 
@@ -14,7 +14,6 @@ const CatDetail = props => {
     const [age, setAge] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [isAdopted, setIsAdopted] = useState(false);
-    const [setTitle] = useState();
     const [img, setImg] = useState();
     const [id, setId] = useState();
     const [isHungry, setIsHungry] = useState();

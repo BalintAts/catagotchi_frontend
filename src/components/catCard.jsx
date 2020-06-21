@@ -1,19 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import '../styles/catCard.css';
 import { Link } from 'react-router-dom';
 import { IsUsersCatsContext } from '../contexts/isUsersCats_context';
 
 const CatCard = props => {
 
-    const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
-
-
-
-    // const hovered, add classname to image
+    const [isUsersCats] = useContext(IsUsersCatsContext);
 
     return (
-
-        // <Link to={{ pathname: '/my-cats/' + props.id, query: { url: `/my-cats/${props.match.params.id}` } }}>
         <>
             {isUsersCats ? (
                 <Link to={{ pathname: '/my-cats/' + props.id }} style={{ textDecoration: "none" }}>
@@ -30,7 +24,7 @@ const CatCard = props => {
 
                         <div className="card text-center">
                             <div className="frame" style={{ margin: "20px" }}>
-                                <img className="image" src={props.img} alt={props.img}></img>
+                                <img className="image" src={props.img} alt={props.img} width="256" height="256"></img>
                             </div>
                             <h1 style={{ width: "100%" }}>{props.name}</h1>
 

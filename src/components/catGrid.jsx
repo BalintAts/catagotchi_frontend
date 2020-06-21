@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { fakeData } from "../fakeData/fakeData";
 import CatCard from "./catCard";
 import { Grid } from "@material-ui/core";
-import { FilterContext } from "./searchAttributes/filterContext";
 import "../styles/catGrid.css";
 import axios from "axios";
 import { IsUsersCatsContext } from "../contexts/isUsersCats_context";
@@ -11,7 +9,6 @@ const CatGrid = (props) => {
 
     const [filteredData, setFilteredData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [title, setTitle] = useState("All Cats");
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
 
     useEffect(() => {

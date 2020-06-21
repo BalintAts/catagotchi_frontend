@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
+import { IsUsersCatsContext } from "../contexts/isUsersCats_context";
 import LinkStyle from "../styleComponents/linkStyle";
 import { AppBar, Toolbar, Box, } from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
@@ -7,25 +7,9 @@ import Dialog from '@material-ui/core/Dialog';
 const Navbar = props => {
 
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
-    const [openLogin, setOpenLogin] = useState(false);
-
-    const handleOpenLogin = () => {
-        setOpenLogin(true);
-    }
-
-    const handleCloseLogin = () => {
-        setOpenLogin(false);
-    }
+    const [color] = useState("#0000ff");
 
 
-    let counter = 0;
-    let colors = ["#ff0000", "#00ff00", "#0000ff"];
-    const [color, setColor] = useState("#0000ff");
-
-    const ChangeBgColor = () => {
-        counter = (counter + 1) % 3;
-        setColor(colors[counter]);
-    }
 
     const changeToMyCats = e => {
         setIsUsersCats(true);

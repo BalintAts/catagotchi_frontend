@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/catCard.css';
 import axios from "axios";
-import { IsUsersCatsContext, IsUsersCatsProvider } from "../contexts/isUsersCats_context";
+import { IsUsersCatsContext } from "../contexts/isUsersCats_context";
 import { Grid } from '@material-ui/core';
-import Arrow from './arrow.jpg';
+import LinearProgressWithLabel from '@material-ui/core/LinearProgress';
 
 
 
@@ -14,10 +14,11 @@ const CatDetail = props => {
     const [age, setAge] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [isAdopted, setIsAdopted] = useState(false);
-    const [setTitle] = useState();
     const [img, setImg] = useState();
     const [id, setId] = useState();
     const [isHungry, setIsHungry] = useState();
+    const [isThirsty, setIsThirsty] = useState(false);
+    const [litterBoxClean, setLitterBoxClean] = useState(false);
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
 
 
@@ -37,6 +38,7 @@ const CatDetail = props => {
                 setAge(resp.data.age);
                 setImg(resp.data.img);
                 setIsHungry(resp.data.hungry);
+                setIsThirsty(resp.data.thirsty);
                 setIsAdopted(resp.data.isAdopted);
 
                 console.log(resp);
@@ -49,31 +51,33 @@ const CatDetail = props => {
     }, [id, props.match.params.id, isUsersCats, isAdopted, props]);
 
     const feed = e => {
-        setIsHungry(false);
         axios.get(`http://localhost:8080/my-cats/${id}/give-food`)
-            .then(resp => {
-                setName(resp.data.name);
-                setGender(resp.data.gender);
-                setAge(resp.data.age);
-                setImg(resp.data.img);
-                setIsHungry(resp.data.hungry);
-                setIsAdopted(resp.data.isAdopted);
-            })
             .catch(error => {
                 console.log(error)
             });
+        setIsHungry(false);
+    }
+
+    const drink = e => {
+        axios.get(`http://localhost:8080/my-cats/${id}/thirsty`)
+            .catch(error => {
+                console.log(error)
+            });
+        setIsThirsty(false);
+    }
+
+    const cleanLitterBox = e => {
+        axios.get(`http://localhost:8080/my-cats/${id}/litterBoxClean`)
+            .catch(error => {
+                console.log(error)
+            });
+        setLitterBoxClean(true);
     }
 
     const adopt = e => {
         console.log("adopt")
         axios.get(`http://localhost:8080/${id}/adopt`)
             .then(resp => {
-                console.log(resp);
-                setName(resp.data.name);
-                setGender(resp.data.gender);
-                setAge(resp.data.age);
-                setImg(resp.data.img);
-                setIsHungry(resp.data.hungry);
                 setIsAdopted(resp.data.isAdopted);
                 setIsUsersCats(true);
             })
@@ -103,15 +107,13 @@ const CatDetail = props => {
 
                         {isUsersCats === false && (<button onClick={adopt}>adopt</button>)}
                     </Grid>
-                    <Grid container item direction="column" xs={4} justify="center"
-                        style={{ minHeight: '10vh' }}>
+
+                    <Grid container item direction="column" xs={4}>
                         <Grid item>
                             <img src="https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png" alt="https://www.pinclipart.com/picdir/big/372-3723662_png-cat-emoticon-07-cute-cat-emote-png.png" width="500" height="600"></img>
                         </Grid>
-                        <Grid container item
-                            justify="center"
-                            style={{ minHeight: '10vh' }}>
-                            <img src={Arrow} alt={Arrow} width="250" height="250"></img>
+                        <Grid item>
+                            <LinearProgressWithLabel variant="determinate" value={70} />
                         </Grid>
                     </Grid>
 
@@ -121,12 +123,12 @@ const CatDetail = props => {
                             {isHungry && isHungry ? (<h2>Hungry!</h2>) : (<h2>not hungry</h2>)}
                         </Grid>
                         <Grid item>
-                            {isUsersCats && (<button onClick={feed}>Thisty</button>)}
-                            {isHungry && isHungry ? (<h2>Thirsty!</h2>) : (<h2>Not thirsty</h2>)}
+                            {isUsersCats && (<button onClick={drink}>Thisty</button>)}
+                            {isUsersCats && isThirsty ? (<h2>Thirsty!</h2>) : (<h2>Not thirsty</h2>)}
                         </Grid>
                         <Grid item>
-                            {isUsersCats && (<button onClick={feed}>Cleen Litterbox</button>)}
-                            {isHungry && isHungry ? (<h2>My box is full with poop!</h2>) : (<h2>Pooping is fun!</h2>)}
+                            {isUsersCats && (<button onClick={cleanLitterBox}>Cleen Litterbox</button>)}
+                            {isUsersCats && litterBoxClean ? (<h2>Pooping is fun!</h2>) : (<h2>My box is full with poop!</h2>)}
                         </Grid>
                     </Grid>
 

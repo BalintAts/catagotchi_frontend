@@ -9,8 +9,6 @@ const Navbar = props => {
     const [isUsersCats, setIsUsersCats] = useContext(IsUsersCatsContext);
     const [color] = useState("#0000ff");
 
-
-
     const changeToMyCats = e => {
         setIsUsersCats(true);
     }
@@ -28,10 +26,6 @@ const Navbar = props => {
                         <LinkStyle to="/my-cats" onClick={changeToMyCats} style={{ textDecoration: "none", justify: "left" }}>My cats</LinkStyle>
                     </div>
                     <button onClick={handleOpenLogin} style={{ justify: "right" }}>Logout</button>
-                    <Dialog open={openLogin} onClose={handleCloseLogin} aria-labelledby="form-dialog-title">
-                        modal
-                    </Dialog>
-                    {/* <button id="bgButton" onClick={ChangeBgColor}>ChangeBgColor</button> */}
                 </Toolbar>
             </AppBar>
         </Box >
